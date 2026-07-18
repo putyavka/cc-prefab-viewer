@@ -2,7 +2,7 @@
   "name": "cc-prefab-viewer",
   "displayName": "cc-prefab-viewer",
   "description": "Cocos Creator prefab viewer",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "repository": {
     "type": "git",
