@@ -4,6 +4,10 @@
   "description": "Cocos Creator prefab viewer",
   "version": "0.0.1",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/putyavka/cc-prefab-viewer"
+  },
   "engines": {
     "vscode": "^1.125.0"
   },
