@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'nonce-__NONCE__'; script-src 'nonce-__NONCE__';">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>__TITLE__</title>
+<link rel="stylesheet" nonce="__NONCE__" href="__CSS_URI__">
+</head>
+<body class="hide-components hide-active-markers" data-active-key="__ACTIVE_KEY__">
+	<div class="toolbar">
+		<button id="expandAll">Expand All</button>
+		<button id="collapseAll">Collapse All</button>
+		<label class="checkbox"><input type="checkbox" id="toggleComponents" /> Components</label>
+		<label class="checkbox"><input type="checkbox" id="toggleActiveMarkers" /> Active</label>
+		<input id="filter" type="text" placeholder="Filter keys / values..." />
+		<span class="count" id="count"></span>
+	</div>
+	<div id="tree"></div>
+
+	<script id="prefab-data" type="application/json">__PREFAB_DATA__</script>
+	<script nonce="__NONCE__" src="__JS_URI__"></script>
+</body>
+</html>

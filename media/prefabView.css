@@ -1,0 +1,163 @@
+:root {
+	color-scheme: light dark;
+	/* Colors sampled from the Cocos Creator hierarchy panel, used to tell
+	   ordinary nodes apart from nested-prefab-instance roots regardless of
+	   the current VS Code theme. */
+	--prefab-tree-bg: #2B2B2B;
+	--prefab-node-ordinary: #C1C1C1;
+	--prefab-node-nested-1: #64AC89;
+	--prefab-node-nested-2: #8DD27A;
+}
+* { box-sizing: border-box; }
+body {
+	font-family: var(--vscode-editor-font-family, monospace);
+	font-size: var(--vscode-editor-font-size, 13px);
+	color: var(--vscode-editor-foreground);
+	background-color: var(--vscode-editor-background);
+	margin: 0;
+	padding: 0;
+}
+.toolbar {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	padding: 8px 12px;
+	background-color: var(--vscode-editor-background);
+	border-bottom: 1px solid var(--vscode-widget-border, var(--vscode-panel-border));
+}
+.toolbar button {
+	background-color: var(--vscode-button-secondaryBackground, #3a3d41);
+	color: var(--vscode-button-secondaryForeground, #fff);
+	border: none;
+	padding: 4px 10px;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 12px;
+}
+.toolbar button:hover {
+	background-color: var(--vscode-button-secondaryHoverBackground, #45494e);
+}
+.toolbar input[type="text"] {
+	flex: 1;
+	max-width: 320px;
+	background-color: var(--vscode-input-background);
+	color: var(--vscode-input-foreground);
+	border: 1px solid var(--vscode-input-border, transparent);
+	border-radius: 3px;
+	padding: 4px 8px;
+	font-size: 12px;
+}
+.toolbar .count {
+	font-size: 12px;
+	opacity: 0.7;
+	white-space: nowrap;
+}
+.toolbar .checkbox {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 12px;
+	white-space: nowrap;
+	cursor: pointer;
+	user-select: none;
+}
+body.hide-components .components-node {
+	display: none;
+}
+.active-marker {
+	margin-right: 4px;
+	opacity: 0.8;
+}
+body.hide-active-markers .active-marker {
+	display: none;
+}
+#tree {
+	padding: 8px 12px 40px 12px;
+	overflow-x: auto;
+	background-color: var(--prefab-tree-bg);
+}
+.node {
+	white-space: nowrap;
+}
+.node > .row {
+	display: flex;
+	align-items: flex-start;
+	border-radius: 3px;
+	padding: 1px 4px;
+}
+.node > .row:hover {
+	background-color: var(--vscode-list-hoverBackground);
+}
+.children {
+	margin-left: 18px;
+	border-left: 1px dotted var(--vscode-widget-border, #555);
+	padding-left: 2px;
+}
+.twisty {
+	width: 14px;
+	flex: 0 0 14px;
+	cursor: pointer;
+	user-select: none;
+	opacity: 0.8;
+	text-align: center;
+}
+.leaf-indent {
+	width: 14px;
+	flex: 0 0 14px;
+}
+.collapsed > .children {
+	display: none;
+}
+.collapsed > .row .twisty::before {
+	content: "▶";
+}
+.expanded > .row .twisty::before {
+	content: "▼";
+}
+.key {
+	color: var(--prefab-node-ordinary);
+	margin-right: 4px;
+}
+.key.nested-1 {
+	color: var(--prefab-node-nested-1);
+}
+.key.nested-2plus {
+	color: var(--prefab-node-nested-2);
+}
+.key.components-list {
+	/* Wins over .nested-1/.nested-2plus above regardless of nesting tier -
+	   same specificity, later in source order. */
+	color: #4079d3;
+}
+.key.inactive {
+	/* ~35% darker than whatever color it's combined with above (tier or
+	   components-list alike, since filter is a separate property from
+	   color and so always applies on top). */
+	filter: brightness(65%);
+}
+.punct {
+	opacity: 0.6;
+	margin-right: 4px;
+}
+.type-string { color: var(--vscode-debugTokenExpression-string, #ce9178); }
+.type-number { color: var(--vscode-debugTokenExpression-number, #b5cea8); }
+.type-boolean { color: var(--vscode-debugTokenExpression-boolean, #569cd6); }
+.type-null { color: var(--vscode-debugTokenExpression-name, #569cd6); opacity: 0.8; }
+.summary {
+	opacity: 0.55;
+	margin-left: 4px;
+}
+.node.match > .row {
+	outline: 1px solid var(--vscode-editor-findMatchBorder, #f0c000);
+	background-color: var(--vscode-editor-findMatchHighlightBackground, rgba(240, 192, 0, 0.25));
+}
+.node.hidden {
+	display: none;
+}
+.empty {
+	padding: 24px;
+	opacity: 0.7;
+}
