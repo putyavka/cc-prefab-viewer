@@ -27,6 +27,17 @@ For a recognized `.prefab`/`.scene`/`.fire` asset, the file's raw serialized JSO
 - A background progress indicator shows while the tree is being built, for large projects where that walk takes a moment
 - Re-invoking the command on an already-open file reveals its existing tab instead of opening a duplicate
 
+### Usage
+
+- Activate from context menu
+![](images/ContextMenu.png)
+- Default view
+![](images/DefaultView.png)
+- With component names
+![](images/ComponentsList.png)
+- With active flags
+![](images/ActiveMarkers.png)
+
 ### Running the command
 
 - **Command Palette**: run `Cocos Creator: Prefab View` while a file is open in the active editor
